@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pydantic import BaseModel, Field
 from agents import Agent, RunContext, Tool, AgentResponse
 
-df = pd.read_csv('~/Downloads/cleaned_data.csv')
+df = pd.read_csv('dataset/marx.csv')
 
 @dataclass
 class Deps:
@@ -38,7 +38,7 @@ def ask_agent(question):
     print("--------------------")
 
 
-
+with open
 
 
 
