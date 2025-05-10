@@ -1,0 +1,8 @@
+What are the most common protocols used?
+Which destination ports are accessed most frequently?
+How does traffic volume change over time?
+Are there any unusual spikes in traffic at specific times?
+Are there any ports being targeted more than usual (possible scanning)?
+Which source IPs (src) are generating the most traffic?
+Are there repeated access attempts from the same source?
+Are there connections to unusual ports that may indicate suspicious activity?

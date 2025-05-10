@@ -38,7 +38,11 @@ def ask_agent(question):
     print("--------------------")
 
 
-with open
+with open("questions.txt", "r") as f:
+    questions = f.readlines()
+    for q in questions:
+        ask_agent(q.strip())
+
 
 
 
