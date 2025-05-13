@@ -4,8 +4,8 @@ import numpy as np
 from typing import List, Dict, Any
 from dataclasses import dataclass
 
-from pydantic import BaseModel, Field
-from agents import Agent, RunContext, Tool, AgentResponse
+from pydantic_ai import Agent, RunContext, ModelRetry
+
 
 df = pd.read_csv('dataset/marx.csv')
 
@@ -15,7 +15,7 @@ class Deps:
 
 agent = Agent(
         model="gpt-3.5-turbo",
-        system_prompt="You are a cybersecurity data analysis agent. You will be provided with a dataset of attempted logins to a honeypot. Your task is to analyze the data and provide insights. You will be provided with a list of questions, and you should answer them based on the data provided.",
+        instructions="You are a cybersecurity data analysis agent. You will be provided with a dataset of attempted logins to a honeypot. Your task is to analyze the data and provide insights. You will be provided with a list of questions, and you should answer them based on the data provided.",
         deps_type=Deps,
         retries=10,
         )
@@ -34,7 +34,7 @@ def ask_agent(question):
     deps = Deps(df)
     print(question)
     res = agent.run_sync(question, deps=deps)
-    print(response.new_message()[-1].content)
+    print(res.new_message()[-1].content)
     print("--------------------")
 
 
